@@ -9,4 +9,14 @@ jobs:
       - uses: actions/checkout@v1
       - uses: ./action-a
         with:
-          MY_NAME: "Mona"
+          MY_NAME: "Sagar"
+      - name: 'Sending SMS Notification'
+        uses: sagarchoudhary96/exosms-actions@v1
+        with:
+          fromNumber: '+918047193542'
+          toNumber: '+919056455979'
+          message: 'New Code Changes to master'
+        env:
+          EXOTEL_ACCOUNT_SID: ${{ secrets.EXOTEL_ACCOUNT_SID }}
+          EXOTEL_API_KEY: ${{ secrets.EXOTEL_API_KEY }}
+          EXOTEL_API_TOKEN: ${{ secrets.EXOTEL_API_TOKEN }}
